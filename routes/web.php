@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login'));
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function (){
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/cat/create', [CatController::class, 'create'])->name('create.cat');
+
+    Route::post('/cat', [CatController::class, 'store'])->name('store.cat');
+
+    Route::get('/cat/{id}/edit', [CatController::class, 'show'])->name('edit.cat');
+
+    Route::put('/cat/{id}', [CatController::class, 'update'])->name('update.cat');
+
+    Route::get('/map', [CatController::class, 'map'])->name('map.cat');
+
+});

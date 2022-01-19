@@ -15,8 +15,14 @@
 
         @livewireStyles
 
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+        <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -42,5 +48,6 @@
         @stack('modals')
 
         @livewireScripts
+
     </body>
 </html>
