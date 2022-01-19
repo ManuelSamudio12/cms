@@ -79,10 +79,13 @@ class CatController extends Controller
     {
         $cats = Cat::where('user_id', Auth::id())->get();
 
-        foreach ($cats as $cat){
-            $locations[] = [$cat->address_latitude, $cat->address_longitude];
+        if ($cats->isNotEmpty()){
+            foreach ($cats as $cat){
+                $locations[] = [$cat->address_latitude, $cat->address_longitude];
+            }
+            return view('map', compact('locations'));
+        }else{
+            return view('map');
         }
-
-        return view('map', compact('locations'));
     }
 }

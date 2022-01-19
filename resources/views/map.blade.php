@@ -29,16 +29,18 @@
                 center: panama,
             });
 
-            var locations = @json($locations);
+            @if($locations ?? '')
+                var locations = @json($locations ?? '');
 
-            for(let i = 0; i < locations.length; i++){
-                const latLng = new google.maps.LatLng(locations[i][0], locations[i][1]);
+                for(let i = 0; i < locations.length; i++){
+                    const latLng = new google.maps.LatLng(locations[i][0], locations[i][1]);
 
-                new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-                });
-            }
+                    new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                    });
+                }
+            @endif
 
         }
     </script>
