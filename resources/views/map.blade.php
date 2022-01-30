@@ -9,7 +9,7 @@
         <div id="map" style=""></div>
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO8z2XKIsBAlfGLT67uzmqaK0_qGz9Lqg&callback=initMap&libraries=&v=weekly" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&callback=initMap&libraries=&v=weekly" async></script>
     <style>
         /* Set the size of the div element that contains the map */
         #map {

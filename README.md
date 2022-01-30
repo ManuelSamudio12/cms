@@ -10,6 +10,7 @@ Cat Management System (CMS), is a web application build in Laravel 8 that helps 
 - Run composer install on your terminal
 - Copy .env.example file to .env on the root folder.
 - Open your .env file and change the database name (DB_DATABASE), username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
+- Add your google api key to .env file (GOOGLE_API_KEY)
 - Run php artisan key:generate
 - Run php artisan storage:link
 - Run npm install 
